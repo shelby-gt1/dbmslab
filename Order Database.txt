@@ -1,0 +1,38 @@
+Order Database
+
+1).
+SELECT COUNT(*) 
+FROM customers
+where Grade > (SELECT AVG(Grade)
+FROM customers
+WHERE City='Bengaluru');
+ 
+2).
+SELECT S.Salesman_id, S.Name
+FROM customers C,salesman S
+where C.Salesman_id=S.Salesman_id
+GROUP BY C.Salesman_id
+HAVING COUNT(*)>1
+
+3).
+(SELECT S.Salesman_id, S.Name,'NO'
+FROM SALESMAN S,CUSTOMERS C
+WHERE S.Salesman_id=C.Salesman_id and 
+S.CITY!=C.CITY)
+ UNION
+(SELECT S.Salesman_id, S.Name,'YES'
+FROM SALESMAN S,CUSTOMERS C
+WHERE S.Salesman_id=C.Salesman_id and 
+S.CITY=C.CITY);
+
+4).
+CREATE OR REPLACE VIEW SV AS 
+SELECT S.Salesman_id, S.Name, SUM(O.Purchase_Amt) AS SP
+FROM ORDERS O,salesman S
+WHERE O.Salesman_id=S.Salesman_id
+GROUP By O.Customer_id,O.Ord_Date
+ORDER BY SP DESC
+LIMIT 0,1;
+
+5).
+DELETE  FROM salesman WHERE Salesman_id=1000;
