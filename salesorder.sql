@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 06, 2024 at 06:51 AM
--- Server version: 8.2.0
--- PHP Version: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -16,10 +8,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `4jn21ai055_salesorder`
---
 
 -- --------------------------------------------------------
 
@@ -126,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `sps` (
 DROP TABLE IF EXISTS `sps`;
 
 DROP VIEW IF EXISTS `sps`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`4JN21AI055`@`localhost` SQL SECURITY DEFINER VIEW `sps`  AS SELECT `o`.`salesman_id` AS `salesman_id`, `o`.`ord_date` AS `ord_date`, sum(`o`.`purchase_amt`) AS `SP` FROM `orders` AS `o` GROUP BY `o`.`salesman_id`, `o`.`ord_date` ORDER BY `SP` DESC LIMIT 0, 1 ;
+CREATE  SQL SECURITY DEFINER VIEW `sps`  AS SELECT `o`.`salesman_id` AS `salesman_id`, `o`.`ord_date` AS `ord_date`, sum(`o`.`purchase_amt`) AS `SP` FROM `orders` AS `o` GROUP BY `o`.`salesman_id`, `o`.`ord_date` ORDER BY `SP` DESC LIMIT 0, 1 ;
 
 --
 -- Constraints for dumped tables
