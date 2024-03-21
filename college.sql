@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 06, 2024 at 06:51 AM
--- Server version: 8.2.0
--- PHP Version: 8.2.13
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -16,10 +7,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `4jn21ai055_college`
---
 
 -- --------------------------------------------------------
 
@@ -181,7 +168,7 @@ INSERT INTO `student` (`usn`, `sname`, `address`, `phone`, `gender`) VALUES
 DROP TABLE IF EXISTS `iam`;
 
 DROP VIEW IF EXISTS `iam`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`4JN21AI055`@`localhost` SQL SECURITY DEFINER VIEW `iam`  AS SELECT `i`.`subcode` AS `subcode`, `i`.`test1` AS `test1` FROM `iamarks` AS `i` WHERE (`i`.`usn` = '1BI15CS101') ;
+CREATE ALGORITHM=UNDEFINED DEFINER SQL SECURITY DEFINER VIEW `iam`  AS SELECT `i`.`subcode` AS `subcode`, `i`.`test1` AS `test1` FROM `iamarks` AS `i` WHERE (`i`.`usn` = '1BI15CS101') ;
 
 --
 -- Constraints for dumped tables
