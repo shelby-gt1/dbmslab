@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 06, 2024 at 06:51 AM
--- Server version: 8.2.0
--- PHP Version: 8.2.13
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -17,11 +8,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `4jn21ai055_library`
---
-
--- --------------------------------------------------------
+-------------------------------------
 
 --
 -- Stand-in structure for view `bnc`
@@ -193,7 +180,7 @@ INSERT INTO `publisher` (`name`, `address`, `phone`) VALUES
 DROP TABLE IF EXISTS `bnc`;
 
 DROP VIEW IF EXISTS `bnc`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`4JN21AI055`@`localhost` SQL SECURITY DEFINER VIEW `bnc`  AS SELECT `b`.`bookid` AS `bookid`, `b`.`title` AS `title`, sum(`c`.`no_of_copies`) AS `sum(c.no_of_copies)` FROM (`book` `b` join `book_copies` `c`) WHERE (`b`.`bookid` = `c`.`bookid`) GROUP BY `b`.`bookid` ;
+CREATE  SQL SECURITY DEFINER VIEW `bnc`  AS SELECT `b`.`bookid` AS `bookid`, `b`.`title` AS `title`, sum(`c`.`no_of_copies`) AS `sum(c.no_of_copies)` FROM (`book` `b` join `book_copies` `c`) WHERE (`b`.`bookid` = `c`.`bookid`) GROUP BY `b`.`bookid` ;
 
 --
 -- Constraints for dumped tables
